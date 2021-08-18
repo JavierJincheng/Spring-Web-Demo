@@ -22,7 +22,7 @@ pipeline {
     stage ('SonarQube Scan') {
       steps {
         echo 'Run SonarQube Scan'
-        withSonarQubeEnv() {
+        withSonarQubeEnv(installationName: 'DevOpsSonarQube') {
           sh 'mvn clean install'
           sh 'mvn sonar:sonar'
         }
